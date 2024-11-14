@@ -1,0 +1,67 @@
+// import express from 'express';
+// import dotenv from 'dotenv';
+// // import { createClient } from '@supabase/supabase-js';
+
+// const app = express();
+// dotenv.config();
+
+// const port = process.env.PORT;
+// // const supabaseUrl = process.env.SUPABASE_URL;
+// // const supabaseKey = process.env.SUPABASE_KEY;
+// // export const supabase = createClient(supabaseUrl, supabaseKey);
+
+
+
+// // console.log();
+
+
+
+
+// app.get('/song', async (req, res) => {
+//   // Routing Scope
+//   let { data, error } = await supabase.from('songs').select('id, title')
+//   console.log(data);
+  
+//   if (error) {
+//     throw new Error(error.message);
+//   } else {
+//     res.send('song')
+//     return data;
+//   }
+// });
+
+// app.get('/albums', async (req, res) => {
+//   let { data, error } = await supabase.from('albums').select('title, image')
+//   console.log(data);
+
+//   if (error) {
+//     throw new Error(error.message);
+//   } else {
+//     res.send('albums')
+    
+//     return data;
+//   }
+  
+// });
+
+// app.get('/artisterne', async (req, res) => {
+//   res.send('artister');
+//   let { data, error } = await supabase.from('artists').select('*')
+//   console.log(data);
+
+//   if (error) {
+//     throw new Error(error.message);
+//   } else {
+//     res.send('artister')
+//     return data;
+//   }
+// });
+
+// app.get("/", (req, res) => {
+//   res.send('Hej verden!');
+// });
+
+// app.listen(port, () => {
+//   console.log(`server kører på http://localhost:${port}`);
+// });
+
