@@ -12,6 +12,20 @@ class ArtistsModel {
     }
     return data;
   }
+
+  static getartistsById = async id => {
+    const { data, error } = await supabase
+      .from('artists')
+      .select('*')
+      .eq('id', id)
+      .single(); // Retrieves a single record
+
+    if (error) {
+      console.error('Error fetching song:', error.message);
+      return null;
+    }
+    return data;
+  }
 }
 
 export default ArtistsModel;
