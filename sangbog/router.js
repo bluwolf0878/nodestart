@@ -1,8 +1,8 @@
 // routes/index.js
 import express from 'express';
-import { getAllSongs, getSingleSong } from './songs_controller.js';
-import { getAllArtists, getSingleartists } from './artists_cotroller.js';
-import { getAllAlbums, getSinglealbums } from './albums_controller.js';
+import { createSong, getAllSongs, getSingleSong,} from './songs_controller.js';
+import { createartists, getAllArtists, getSingleartists, } from './artists_cotroller.js';
+import { createalbums ,getAllAlbums, getSinglealbums } from './albums_controller.js';
 
 const router = express.Router();
 
@@ -10,6 +10,11 @@ const router = express.Router();
 router.get('/songs', getAllSongs);
 router.get('/artists', getAllArtists);
 router.get('/albums', getAllAlbums);
+
+router.post('/songs', createSong)
+router.post('/artists', createartists)
+router.post('/albums', createalbums)
+
 
 router.get('/songs/:id', getSingleSong);
 router.get('/artists/:id', getSingleartists);

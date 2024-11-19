@@ -24,3 +24,12 @@ export const getSinglealbums = async (req, res) => {
 
 };
 
+export const createalbums = async (req, res) => {
+  try {
+    const data = await AlbumsModel.createRecord(req.body)
+    res.status(200).send(data)
+    
+  } catch (error) {
+    
+  }
+}

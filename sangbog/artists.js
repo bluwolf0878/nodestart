@@ -26,6 +26,24 @@ class ArtistsModel {
     }
     return data;
   }
-}
 
+  static async createRecord(formdata) {
+    // Method scope
+    console.log(formdata);
+    let { data, error } = await supabase.from('artists')
+    .insert([
+      {
+        name: formdata.name,
+        description: formdata.description,
+        image: formdata.image
+      }
+    ])
+    .select()
+    .single()
+    if(error){
+      console.error(error )
+    }
+    return data
+  }
+}
 export default ArtistsModel;

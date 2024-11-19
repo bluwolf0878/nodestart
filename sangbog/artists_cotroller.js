@@ -23,3 +23,13 @@ export const getAllArtists = async (req, res) => {
     }
   
 };
+
+export const createartists = async (req, res) => {
+  try {
+    const data = await ArtistsModel.createRecord(req.body)
+    res.status(200).send(data)
+    
+  } catch (error) {
+    
+  }
+}

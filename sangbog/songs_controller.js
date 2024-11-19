@@ -23,3 +23,13 @@ export const getSingleSong = async (req, res) => {
   }
 };
 
+export const createSong = async (req, res) => {
+  try {
+    const data = await SongsModel.createRecord(req.body)
+    console.log(data);
+    
+  } catch (error) {
+    
+  }
+}
+

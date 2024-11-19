@@ -27,6 +27,26 @@ class SongsModel {
     }
     return data;
   }
+
+  static async createRecord(formdata) {
+    // Method scope
+    console.log(formdata);
+
+    let { data, error } = await supabase.from('songs')
+      .insert([
+        {
+          title: formdata.title,
+          content: formdata.content,
+          lyrics: formdata.lyrics,
+          artist_id: formdata.artist_id
+        }
+      ])
+      .select()
+      .single()
+      if(error){
+        console.error(error )
+      }
+  }
 }
 
 
