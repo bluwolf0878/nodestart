@@ -65,6 +65,21 @@ class SongsModel {
     return data;
   }
   
+  static async deleteSongById(id) {
+    try{
+      const { data, error } = await supabase
+        .from('songs')
+        .delete()
+        .eq('id', id);
+        if (error) {
+          throw new Error(`error deleting songs:${error}`);
+        }
+        return true
+    }
+    catch(error){
+      console.error(error)
+    }
+  }
 }
 
 

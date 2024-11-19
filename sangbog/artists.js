@@ -60,5 +60,21 @@ class ArtistsModel {
     }
     return data;
   }
+
+  static async deleteArtistById(id) {
+    try{
+      const { data, error } = await supabase
+        .from('artists')
+        .delete()
+        .eq('id', id);
+        if (error) {
+          throw new Error(`error deleting artist:${error}`);
+        }
+        return true
+    }
+    catch(error){
+      console.error(error)
+    }
+  }
 }
 export default ArtistsModel;

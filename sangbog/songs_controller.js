@@ -48,4 +48,14 @@ export const updateSong = async (req, res) => {
   }
 };
 
+export const deleteSong = async (req, res) => {
+  console.log(req.body);
+  
+    const { id } = req.body;
+    const success = await SongsModel.deleteSongById(id);
+    console.log(success);
+    
+};
+
+
 

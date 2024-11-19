@@ -49,3 +49,13 @@ export const updateAlbums = async (req, res) => {
   }
 };
 
+export const deleteAlbum = async (req, res) => {
+  console.log(req.body);
+  
+    const { id } = req.body;
+    const success = await AlbumsModel.deleteAlbumById(id);
+    console.log(success);
+    
+};
+
+

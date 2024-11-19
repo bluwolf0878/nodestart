@@ -47,3 +47,12 @@ export const updateArtist = async (req, res) => {
     res.status(500).json({ error: 'Failed to update Artist' });
   }
 };
+
+export const deleteArtist = async (req, res) => {
+  console.log(req.body);
+  
+    const { id } = req.body;
+    const success = await ArtistsModel.deleteArtistById(id);
+    console.log(success);
+    
+};

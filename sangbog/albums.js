@@ -48,18 +48,34 @@ class AlbumsModel {
 
 static async updateAlbumsById(id, updatedData) {
   console.log(updatedData);
-  
+
   const { data, error } = await supabase
     .from('albums')
     .update(updatedData)
     .eq('id', id)
-    .single(); // Ensures only one record is returned
+    .single();
 
   if (error) {
     console.error('Error updating album:', error.message);
     return null;
   }
   return data;
+}
+
+static async deleteAlbumById(id) {
+  try{
+    const { data, error } = await supabase
+      .from('albums')
+      .delete()
+      .eq('id', id);
+      if (error) {
+        throw new Error(`error deleting album:${error}`);
+      }
+      return true
+  }
+  catch(error){
+    console.error(error)
+  }
 }
 
 

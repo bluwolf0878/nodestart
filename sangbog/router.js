@@ -1,8 +1,8 @@
 // routes/index.js
 import express from 'express';
-import { createSong, getAllSongs, getSingleSong, updateSong} from './songs_controller.js';
-import { createartists, getAllArtists, getSingleartists, updateArtist } from './artists_cotroller.js';
-import { createalbums ,getAllAlbums, getSinglealbums, updateAlbums } from './albums_controller.js';
+import { createSong, getAllSongs, getSingleSong, updateSong, deleteSong} from './songs_controller.js';
+import { createartists, getAllArtists, getSingleartists, updateArtist, deleteArtist } from './artists_cotroller.js';
+import { createalbums ,getAllAlbums, getSinglealbums, updateAlbums , deleteAlbum } from './albums_controller.js';
 
 const router = express.Router();
 
@@ -22,6 +22,10 @@ router.post('/albums', createalbums)
 router.put('/songs', updateSong);
 router.put('/artists', updateArtist);
 router.put('/albums', updateAlbums);
+
+router.delete('/songs', deleteSong);
+router.delete('/artists', deleteArtist);
+router.delete('/albums', deleteAlbum);
 
 
 export default router;
