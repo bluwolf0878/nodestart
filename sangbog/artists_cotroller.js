@@ -33,3 +33,17 @@ export const createartists = async (req, res) => {
     
   }
 }
+
+export const updateArtist = async (req, res) => {
+  const { id } = req.body;
+  const updatedData = req.body; // Data fra forespørgslen
+  try {
+    const updatedartists = await ArtistsModel.updateArtistsById(id, updatedData);
+    if (!updatedartists) {
+      return res.status(404).json({ error: 'Artists not found' });
+    }
+    res.status(200).json({ id: updatedSong.id, message: 'Artists updated successfully' });
+  } catch (error) {
+    res.status(500).json({ error: 'Failed to update Artist' });
+  }
+};

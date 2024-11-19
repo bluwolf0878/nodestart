@@ -45,5 +45,20 @@ class ArtistsModel {
     }
     return data
   }
+
+  static async updateArtistsById(id, updatedData) {
+
+    const { data, error } = await supabase
+      .from('artists')
+      .update(updatedData)
+      .eq('id', id)
+      .single(); // Ensures only one record is returned
+  
+    if (error) {
+      console.error('Error updating artists:', error.message);
+      return null;
+    }
+    return data;
+  }
 }
 export default ArtistsModel;

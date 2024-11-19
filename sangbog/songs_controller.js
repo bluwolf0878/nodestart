@@ -33,3 +33,19 @@ export const createSong = async (req, res) => {
   }
 }
 
+export const updateSong = async (req, res) => {
+  const { id } = req.body;
+  const updatedData = req.body;
+  
+  try {
+    const updatedSong = await SongsModel.updateSongById(id, updatedData);
+    if (!updatedSong) {
+      return res.status(404).json({ error: 'Song not found' });
+    }
+    res.status(200).json({ id: updatedSong.id, message: 'Song updated successfully' });
+  } catch (error) {
+    res.status(500).json({ error: 'Failed to update song' });
+  }
+};
+
+

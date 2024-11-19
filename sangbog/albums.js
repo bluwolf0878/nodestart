@@ -45,6 +45,24 @@ class AlbumsModel {
     }
     return data
   }
+
+static async updateAlbumsById(id, updatedData) {
+  console.log(updatedData);
+  
+  const { data, error } = await supabase
+    .from('albums')
+    .update(updatedData)
+    .eq('id', id)
+    .single(); // Ensures only one record is returned
+
+  if (error) {
+    console.error('Error updating album:', error.message);
+    return null;
+  }
+  return data;
+}
+
+
 }
 
 export default AlbumsModel;

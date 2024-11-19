@@ -33,3 +33,19 @@ export const createalbums = async (req, res) => {
     
   }
 }
+
+export const updateAlbums = async (req, res) => {
+  const { id } = req.body;
+  const updatedData = req.body; // Data fra forespørgslen
+  try {
+    
+    const updatedAlbums = await AlbumsModel.updateAlbumsById(id, updatedData);
+    if (!updatedAlbums) {
+      return res.status(404).json({ error: 'Albums not found' });
+    }
+    res.status(200).json({ id: updatedSong.id, message: 'Albums updated successfully' });
+  } catch (error) {
+    res.status(500).json({ error: 'Failed to update Albums' });
+  }
+};
+

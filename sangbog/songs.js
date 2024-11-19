@@ -47,6 +47,24 @@ class SongsModel {
         console.error(error )
       }
   }
+
+  static async updateSongById(id, updatedData) {
+    
+    const { data, error } = await supabase
+      .from('songs')
+      .update(updatedData)
+      .eq('id', id)
+      .single();
+      
+    if (error) {
+      console.error('Error updating song:', error.message);
+      return null;
+    }
+
+    
+    return data;
+  }
+  
 }
 
 
